@@ -1,20 +1,27 @@
-import { StatusBar } from 'expo-status-bar';
-import { StyleSheet, Text, View } from 'react-native';
+import Country from './src/Country';
+import { Container, Grid } from '@mui/material';
+import { BrowserRouter, Routes, Route } from 'react-router-dom';
+import CountryInfo from './src/CountryInfo';
 
 export default function App() {
   return (
-    <View style={styles.container}>
-      <Text>Open up App.tsx to start working on your app!</Text>
-      <StatusBar style="auto" />
-    </View>
+    <>
+      <BrowserRouter>
+        <Container maxWidth='lg'>
+          <Grid
+            container
+            direction='row'
+            justifyContent='center'
+            alignItems='center'
+            minHeight='100vh'
+          >
+            <Routes>
+              <Route path='/' element={<Country />} />
+              <Route path='/info' element={<CountryInfo />} />
+            </Routes>
+          </Grid>
+        </Container>
+      </BrowserRouter>
+    </>
   );
 }
-
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    backgroundColor: '#fff',
-    alignItems: 'center',
-    justifyContent: 'center',
-  },
-});
