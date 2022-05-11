@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { TextField, Button, Paper, Grid, Box, Stack } from '@mui/material';
+import { TextField, Button, Paper, Grid, Box, Typography } from '@mui/material';
 import axios from 'axios';
 import { useNavigate } from 'react-router-dom';
 
@@ -10,7 +10,7 @@ const Country = () => {
   const onSubmitHandler = () => {
     axios
       .get(`https://restcountries.com/v3.1/name/${country}`)
-      .then((res) => navigate('/info', { state: { response: res.data[0] } }));
+      .then((res) => navigate('/info', { state: { response: res.data } }));
   };
 
   return (
@@ -24,6 +24,13 @@ const Country = () => {
               alignItems: 'center',
             }}
           >
+            <Typography
+              variant='h5'
+              sx={{ mb: 3, fontWeight: 700 }}
+              color='primary'
+            >
+              Search Country Data
+            </Typography>
             <TextField
               label='Enter Country'
               variant='outlined'

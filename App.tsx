@@ -14,6 +14,7 @@ export default function App() {
             justifyContent='center'
             alignItems='center'
             minHeight='100vh'
+            columns={{ xs: 4, sm: 8, md: 12 }}
           >
             <Routes>
               <Route path='/' element={<Country />} />
